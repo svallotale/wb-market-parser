@@ -123,8 +123,8 @@ export class WbMarketParser {
    */
   async getByCountry(country: string): Promise<MarketType.Market[]> {
     const data = await this.getUpdatedData();
-    const dataFiltered = data.filter((el) => el.country === country);
-    return dataFiltered[0]?.markets || [];
+    const dataFiltered = data.find((el) => el.country === country);
+    return dataFiltered?.items || [];
   }
 
   /**
@@ -139,8 +139,8 @@ export class WbMarketParser {
    */
   async getById(id: number): Promise<MarketType.Market[]> {
     const data = await this.getUpdatedData();
-    const dataFiltered = data.filter((el) => el.markets.find((el) => el.id === id));
-    return dataFiltered[0]?.markets || [];
+    const dataFiltered = data.find((el) => el.items.find((el) => el.id === id));
+    return dataFiltered?.items || [];
   }
 
   /**

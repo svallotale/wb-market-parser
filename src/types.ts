@@ -16,7 +16,7 @@ export namespace MarketType {
 
   export type Items = {
     country: string;
-    markets: Market[];
+    items: Market[];
   };
 
   export interface Logger {
